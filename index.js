@@ -74291,7 +74291,7 @@ app.get('/coins', (req, res) => {
     res.json(coinList);
 });
 
-app.use(express.static(path.join(cryptoserver, 'dist'), {
+app.use(express.static(path.join(cryptofrontdashboard, 'dist'), {
     setHeaders: (res, path) => {
       if (path.endsWith('.css')) {
         res.setHeader('Content-Type', 'text/css');
