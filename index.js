@@ -3,7 +3,7 @@ const express = require('express')
 const cors = require("cors");
 const app = express()
 app.use(cors());
-
+const path = require('path'); 
 
 
 const coinList = [
@@ -74291,22 +74291,12 @@ app.get('/coins', (req, res) => {
     res.json(coinList);
 });
 
-app.use(express.static(path.join(cryptofrontdashboard, 'dist'), {
-    setHeaders: (res, path) => {
-      if (path.endsWith('.css')) {
-        res.setHeader('Content-Type', 'text/css');
-      }
-    }
-  }));
 
 // Endpoint to get supported currencies
 app.get('/currency', (req, res) => {
     res.json(supported_vs_currencies);
 });
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-  });
 // Start the server
 const PORT = process.env.PORT|| 8000;
 app.listen(PORT, () => {
