@@ -74290,7 +74290,11 @@ const supported_vs_currencies =
 app.get('/coins', (req, res) => {
     res.json(coinList);
 });
+app.use(express.static(path.join(__dirname, '../cryptofrontdashboard1/dist')));
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../cryptofrontdashboard1/dist', 'index.html'));
+});
 
 // Endpoint to get supported currencies
 app.get('/currency', (req, res) => {
