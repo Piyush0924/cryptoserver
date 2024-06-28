@@ -7,8 +7,7 @@
     "start": "node src/index.js"
   },
   "keywords": [
-    "node",
-    "chai"
+   "crypto"
   ],
   "author": "piyush",
   "license": "ISC",
